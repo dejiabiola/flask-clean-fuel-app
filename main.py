@@ -53,7 +53,26 @@ def search_country():
   all_countries = cur.fetchall()
   return render_template("search_country.html", countries=all_countries)
 
-
+@app.route("/search_year", methods = ["GET", "POST"])
+def search_year():
+  db = get_db()
+  year = 2018
+  if request.method == "POST":
+    year = request.form["year"]
+    print(year)
+  
+  cur = db.execute(""" SELECT *
+                        FROM clean_fuel_total_population
+                        INNER JOIN countries 
+                        ON clean_fuel_total_population.country_id = countries.id
+                        INNER JOIN clean_fuel_rural_population
+                        ON clean_fuel_rural_population.id = clean_fuel_total_population.id
+                        INNER JOIN clean_fuel_urban_population
+                        ON clean_fuel_urban_population.id = clean_fuel_total_population.id
+                        WHERE clean_fuel_total_population.year_eval=?
+    """, (year,))
+  rows = cur.fetchall()
+  return render_template("search_year.html", rows=rows, all_years=all_years, year=year)
 
 @app.route("/country_detail<id>")
 def country_detail(id):

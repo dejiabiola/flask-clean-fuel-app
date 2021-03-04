@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <title>Search By Year</title>
+</head>
+<body>
+  <section>
+    <h1>Search For Data By Year</h1>
+    <p>Select a year in the dropdown below to explore data for all countries for that year</p>
+    <form action="/search_year" method="POST" style="margin-bottom: 30px;">
+      <select name="year" id="year">
+        <option value={{year}}>Select a year</option>
+        {% for year in all_years %}
+        <option value={{year}}>{{year}}</option>
+        {% endfor %}
+      </select>
+      <input type="submit" value="Submit">
+    </form>
+    <p>Showing Data for {{year}}</p>
+    <table>
+      <thead>
+        <th>id</th>
+        <th>Country</th>
+        <th>Year</th>
+        <th>Total Population (in millions)</th>
+        <th>Urban Population (in millions)</th>
+        <th>Rural Population (in millions)</th>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+        <tr>
+          <td><a href={{ url_for ("country_detail", id= row["country_id"]) }}>{{row["country_id"]}}</a></td>
+          <td>{{row["country"]}}</td>
+          <td>{{row["year_eval"]}}</td>
+          <td>{{row["total_pop_number"]}}</td>
+          <td>{{row["urban_pop_number"]}}</td>
+          <td>{{row["rural_pop_number"]}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+</body>
+</html>
