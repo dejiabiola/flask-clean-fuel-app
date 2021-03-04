@@ -28,6 +28,8 @@ def close_db(error):
     if hasattr(g, 'sqlite_db'):
         g.sqlite_db.close()
 
+all_years = [2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000]
+
 @app.route("/")
 def main():
     db = get_db()
@@ -44,8 +46,16 @@ def main():
     rows = cur.fetchall()
     return render_template("index.html", rows=rows)
 
+@app.route("/search_country")
+def search_country():
+  db = get_db()
+  cur = db.execute("SELECT id,country FROM countries")
+  all_countries = cur.fetchall()
+  return render_template("search_country.html", countries=all_countries)
+
+
 
 @app.route("/country_detail<id>")
 def country_detail(id):
-  db = get_db
+  db = get_db()
   return render_template("country_detail.html", id=id)
