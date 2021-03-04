@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <title>Search Country</title>
+</head>
+<body>
+  <section>
+    <h1>Search By Country</h1>
+    <p>Please select a country from below to get proportion of users in that country that use clean fuel and technologies for 
+      their cooking from the year 2018 down to the year 2000
+    </p>
+    <div style="display: flex; flex-wrap: wrap;">
+      {% for country in countries %}
+      <div style="margin: 20px 20px 20px 0"><a href={{ url_for ("country_detail", id= country["id"]) }}>{{country["country"]}}</a></div>
+      {% endfor %}
+    </div>
+  </section>
+  
+</body>
+</html>
