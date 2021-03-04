@@ -4,14 +4,48 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title>Document</title>
   </head>
   <body>
-    <h1 style="text-align: center;">Clean Fuel Checker</h1>
-    <div>
-      {% for row in rows %}
-      <p>{{row[0]}} || {{row[1]}} || {{row[2]}} || {{row[3]}}</p>
-      {% endfor %}
-    </div>
+    <section>
+      <h1 style="text-align: center;">Clean Fuel Checker</h1>
+      <div>
+        <p>This web application explores the proportion population per country with primary reliance on clean fuel and technologies
+           for cooking (in millions)
+        </p>
+        <p>
+          According to the WHO, Clean fuels and technologies are defined in accordance with WHO guidelines for 
+          indoor air quality: household fuel combustion. This includes households primarily relying on electricity, 
+          biogas, natural gas, liquified petroleum gas (LPG), solar or alcohol fuels for cooking.
+        </p>
+        <p>The table below shows the proportions (in millions) that use clean fuel and technologies as at 2018</p>
+        <p>Click on an id to explore more breakdown of data for that country from 2000 to 2018</p>
+        <p>Click {compare} to compare data between countries</p>
+      </div>
+      <table>
+        <thead>
+          <th>id</th>
+          <th>Country</th>
+          <th>Year</th>
+          <th>Total Population (in millions)</th>
+          <th>Urban Population (in millions)</th>
+          <th>Rural Population (in millions)</th>
+        </thead>
+        <tbody>
+          {% for row in rows %}
+          <tr>
+            <td><a href={{ url_for ("country_detail", id= row["country_id"]) }}>{{row["country_id"]}}</a></td>
+            <td>{{row["country"]}}</td>
+            <td>{{row["year_eval"]}}</td>
+            <td>{{row["total_pop_number"]}}</td>
+            <td>{{row["urban_pop_number"]}}</td>
+            <td>{{row["rural_pop_number"]}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+    
   </body>
 </html>
