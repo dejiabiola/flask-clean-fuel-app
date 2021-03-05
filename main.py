@@ -32,7 +32,7 @@ all_years = [2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2
 
 @app.route("/")
 def index():
-    return render_template("index.html", rows=rows)
+    return render_template("index.html")
 
 @app.route("/search_country")
 def search_country():
@@ -65,4 +65,15 @@ def search_year():
 @app.route("/country_detail<id>")
 def country_detail(id):
   db = get_db()
-  return render_template("country_detail.html", id=id)
+  cur = db.execute(""" SELECT *
+                        FROM clean_fuel_total_population
+                        INNER JOIN countries 
+                        ON clean_fuel_total_population.country_id = countries.id
+                        INNER JOIN clean_fuel_rural_population
+                        ON clean_fuel_rural_population.id = clean_fuel_total_population.id
+                        INNER JOIN clean_fuel_urban_population
+                        ON clean_fuel_urban_population.id = clean_fuel_total_population.id
+                        WHERE countries.id = ?
+  """, (id,))
+  rows = cur.fetchall()
+  return render_template("country_detail.html", id=id, rows=rows)

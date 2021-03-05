@@ -4,9 +4,42 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{id}}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <title>{{rows[0]["country"]}} detail</title>
 </head>
 <body>
+  <section>
+    <h1 style="text-align:center;margin-bottom: 30px">Clean Fuel Adoption Values for {{rows[0]["country"]}}</h1>
+    <p>
+      The table below shows the proportion of citizens of {{rows[0]["country"]}} that have adopted the use
+      of clean fuel and technology for cooking from the year 2018 to 2000
+    </p>
+    <p>
+      From the table, it can be seen that there has been a steady increase of people adoption clean fuel for cooking from 
+      {{rows[18]["total_pop_number"]}} million people in the 2000 to {{rows[0]["total_pop_number"]}} million people in the 2018.
+    </p>
+    <p>
+      Urban and rural areas have both seen steady increase in adoption levels and from existing data, we can safely predict that
+      adoption levels in the coming years will only keep increasing as awareness and access to clean fuel and technology continues 
+      to grow.
+    </p>
   
+    <table>
+      <thead>
+        <th>Year</th>
+        <th>Total Population (in millions)</th>
+        <th>Urban Population (in millions)</th>
+        <th>Rural Population (in millions)</th>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+        <tr>
+          <td>{{row["year_eval"]}}</td>
+          <td>{{row["total_pop_number"]}}</td>
+          <td>{{row["urban_pop_number"]}}</td>
+          <td>{{row["rural_pop_number"]}}</td>
+        </tr>
+        {% endfor %}
+  </section>
 </body>
 </html>
