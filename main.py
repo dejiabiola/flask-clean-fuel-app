@@ -31,19 +31,7 @@ def close_db(error):
 all_years = [2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000]
 
 @app.route("/")
-def main():
-    db = get_db()
-    cur = db.execute(""" SELECT *
-                        FROM clean_fuel_total_population
-                        INNER JOIN countries 
-                        ON clean_fuel_total_population.country_id = countries.id
-                        INNER JOIN clean_fuel_rural_population
-                        ON clean_fuel_rural_population.id = clean_fuel_total_population.id
-                        INNER JOIN clean_fuel_urban_population
-                        ON clean_fuel_urban_population.id = clean_fuel_total_population.id
-                        WHERE clean_fuel_total_population.year_eval = 2018
-    """)
-    rows = cur.fetchall()
+def index():
     return render_template("index.html", rows=rows)
 
 @app.route("/search_country")
