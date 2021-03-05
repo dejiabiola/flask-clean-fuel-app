@@ -77,3 +77,15 @@ def country_detail(id):
   """, (id,))
   rows = cur.fetchall()
   return render_template("country_detail.html", id=id, rows=rows)
+
+
+@app.route("/compare", methods = ["GET", "POST"])
+def compare():
+  db = get_db()
+  country_1 = None
+  country_2 = None
+  year_1 = None
+  year_2 = None
+
+  return render_template("compare.html")
+
