@@ -4,11 +4,111 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <title>Compare Data</title>
 </head>
 <body>
     <section>
-      <h1>Welcome to Compare</h1>
+      <h1 style="text-align: center;">Compare Populations</h1>
+      <p>Compare populations of users of clean fuel and technologies for hosehold cooking in different countries and at
+        different years
+      </p>
+      <form action="/compare" method="POST" style="margin-bottom: 50px;">
+        <div style="margin-bottom: 15px;">
+          <label for="country1" style="display: block;margin-bottom: 5px;">Select the first country</label>
+          <select name="country1" id="country1">
+            <option value={{country_1}}>
+              {% if country_1 != '' %}
+                {{country_1}}
+              {% else %}
+              Select first country
+              {% endif %}
+            </option>
+            {% for country in all_countries %}
+            <option value={{country["country"]}}>{{country["country"]}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div style="margin-bottom: 15px;">
+          <label for="year_1" style="display: block;margin-bottom: 5px;">Select the year for the first country</label>
+          <select name="year1" id="year_1">
+            <option value={{year_1}}>
+              {% if year_1 != '' %}
+                {{year_1}}
+              {% else %}
+              Select first year
+              {% endif %}
+            </option>
+            {% for year in all_years %}
+            <option value={{year}}>{{year}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div style="margin-bottom: 15px;">
+          <label for="country_2" style="display: block;margin-bottom: 5px;">Select the second country</label>
+          <select name="country2" id="country_2">
+            <option value={{country_2}}>
+              {% if country_2 != '' %}
+                {{country_2}}
+              {% else %}
+              Select second country
+              {% endif %}
+            </option>
+            {% for country in all_countries %}
+            <option value={{country["country"]}}>{{country["country"]}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div style="margin-bottom: 25px;margin-bottom: 5px;">
+          <label for="year_2" style="display: block;">Select the year for the second country</label>
+          <select name="year2" id="year_2">
+            <option value={{year_2}}>
+              {% if year_2 != '' %}
+                {{year_2}}
+              {% else %}
+              Select second year
+              {% endif %}
+            </option>
+            {% for year in all_years %}
+            <option value={{year}}>{{year}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        
+        <input type="submit" value="Search" style="display: block;margin-top: 15px;">
+      </form>
+      <div style="display: flex;flex-wrap: wrap;justify-content: space-between;margin-bottom: 30px;">
+        {% if country1_details|count > 0 %}
+        <div style="width: 46%;border:2px solid black;text-align: center;">
+          <h2 style="text-align:center">{{country_1}}</h2>
+          <p style="text-align: center;">{{year_1}}</p>
+          {% for row in country1_details %}
+            <p>The total population using clean fuel is {{row["total_pop_number"]}} million people</p>
+            <p>The urban population using clean fuel is {{row["urban_pop_number"]}} million people</p>
+            <p>The rural population using clean fuel is {{row["rural_pop_number"]}} million people</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% if country1_details|count > 0 %}
+        <div style="width: 46%;border:2px solid black;text-align: center;">
+          <h2 style="text-align:center">{{country_2}}</h2>
+          <p style="text-align: center;">{{year_2}}</p>
+          {% for row in country2_details %}
+          <p>The total population using clean fuel is {{row["total_pop_number"]}} million people</p>
+          <p>The urban population using clean fuel is {{row["urban_pop_number"]}} million people</p>
+          <p>The rural population using clean fuel is {{row["rural_pop_number"]}} million people</p>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      {% if country1_details|count > 0 and country2_details|count > 0 %}
+      <div>
+        The difference between the total population of users who use clean fuel and technologies for household cooking
+        in {{country_1}} in the year {{year_1}} and {{country_2}} in the year {{year_2}} is
+        <b>{{(country1_details[0]["total_pop_number"] - country2_details[0]["total_pop_number"])|abs}} million people</b>.
+      </div>
+      {% endif %}
+      
     </section>
 </body>
 </html>

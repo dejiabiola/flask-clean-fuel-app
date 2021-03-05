@@ -82,10 +82,48 @@ def country_detail(id):
 @app.route("/compare", methods = ["GET", "POST"])
 def compare():
   db = get_db()
-  country_1 = None
-  country_2 = None
-  year_1 = None
-  year_2 = None
+  country_1 = ''
+  country_2 = ''
+  year_1 = ''
+  year_2 = ''
+  country_1_details = []
+  country_2_details  = []
 
-  return render_template("compare.html")
+  cur = db.execute("SELECT id,country FROM countries")
+  all_countries = cur.fetchall()
+
+  if request.method == "POST":
+    country_1 = request.form["country1"]
+    country_2 = request.form["country2"]
+    year_1 = request.form["year1"]
+    year_2 = request.form["year2"]
+    print(country_1, country_2, year_1, year_2)
+  
+    cur = db.execute(""" SELECT *
+                          FROM clean_fuel_total_population
+                          INNER JOIN countries 
+                          ON clean_fuel_total_population.country_id = countries.id
+                          INNER JOIN clean_fuel_rural_population
+                          ON clean_fuel_rural_population.id = clean_fuel_total_population.id
+                          INNER JOIN clean_fuel_urban_population
+                          ON clean_fuel_urban_population.id = clean_fuel_total_population.id
+                          WHERE countries.country = ? AND clean_fuel_total_population.year_eval=?
+    """, (country_1, year_1,))
+    country_1_details = cur.fetchall()
+    
+    cur = db.execute(""" SELECT *
+                          FROM clean_fuel_total_population
+                          INNER JOIN countries 
+                          ON clean_fuel_total_population.country_id = countries.id
+                          INNER JOIN clean_fuel_rural_population
+                          ON clean_fuel_rural_population.id = clean_fuel_total_population.id
+                          INNER JOIN clean_fuel_urban_population
+                          ON clean_fuel_urban_population.id = clean_fuel_total_population.id
+                          WHERE countries.country = ? AND clean_fuel_total_population.year_eval=?
+    """, (country_2, year_2,))
+    country_2_details = cur.fetchall()
+
+  print(country_1)
+  return render_template("compare.html", country1_details = country_1_details, country2_details = country_2_details, all_countries=all_countries,
+                          all_years=all_years, country_1 = country_1, country_2 = country_2, year_1=year_1, year_2=year_2)
 
