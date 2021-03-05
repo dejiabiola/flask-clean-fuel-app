@@ -66,3 +66,13 @@ def search_year():
 def country_detail(id):
   db = get_db()
   return render_template("country_detail.html", id=id)
+
+@app.route("/compare", methods = ["GET", "POST"])
+def compare():
+  db = get_db()
+  country_1 = None
+  country_2 = None
+  year_1 = None
+  year_2 = None
+
+  return render_template("compare.html")
