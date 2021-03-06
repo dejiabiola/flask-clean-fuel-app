@@ -12,8 +12,11 @@
     <h1>Search For Data By Year</h1>
     <p>Select a year in the dropdown below to explore data for all countries for that year</p>
     <form action="/search_year" method="POST" style="margin-bottom: 30px;">
+      <label for="year" style="display: block;margin-bottom: 5px;font-size:14px">Enter the year </label>
       <select name="year" id="year">
-        <option value={{year}}>Select a year</option>
+        <option value={{year}}>
+          Select a year
+        </option>
         {% for year in all_years %}
         <option value={{year}}>{{year}}</option>
         {% endfor %}

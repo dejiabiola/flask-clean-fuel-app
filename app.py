@@ -47,7 +47,6 @@ def search_year():
   year = 2018
   if request.method == "POST":
     year = request.form["year"]
-    print(year)
   
   cur = db.execute(""" SELECT *
                         FROM clean_fuel_total_population
