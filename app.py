@@ -123,7 +123,6 @@ def compare():
     """, (country_2, year_2,))
     country_2_details = cur.fetchall()
 
-  print(country_1)
   return render_template("compare.html", country1_details = country_1_details, country2_details = country_2_details, all_countries=all_countries,
                           all_years=all_years, country_1 = country_1, country_2 = country_2, year_1=year_1, year_2=year_2)
 
