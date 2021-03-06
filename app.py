@@ -62,7 +62,7 @@ def search_year():
   rows = cur.fetchall()
   return render_template("search_year.html", rows=rows, all_years=all_years, year=year)
 
-@app.route("/country_detail<id>")
+@app.route("/country_detail/<id>")
 def country_detail(id):
   db = get_db()
   cur = db.execute(""" SELECT *
