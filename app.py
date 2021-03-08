@@ -9,7 +9,7 @@ app.config.from_object(__name__)
 # database details - to remove some duplication
 db_name = 'population_data.db'
 
-# code based on example at https://github.com/mjhea0/flaskr-tdd
+# code based on example at https://github.com/scharlau/shopping_testing_p/blob/main/shopping.py
 
 def connect_db():
     conn = sqlite3.connect(
@@ -27,6 +27,8 @@ def get_db():
 def close_db(error):
     if hasattr(g, 'sqlite_db'):
         g.sqlite_db.close()
+  
+# ----------
 
 all_years = [2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000]
 
@@ -125,3 +127,6 @@ def compare():
   return render_template("compare.html", country1_details = country_1_details, country2_details = country_2_details, all_countries=all_countries,
                           all_years=all_years, country_1 = country_1, country_2 = country_2, year_1=year_1, year_2=year_2)
 
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('page_not_found.html'), 404
