@@ -1,0 +1,184 @@
+commit c30c52f5187dab2c8b1c47d8ff5323bcffea9e6c
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Mon Mar 8 16:57:05 2021 +0100
+
+    commit changes to css file
+
+commit 332642d325a170b43335ec75fe7ce5dfaae486d0
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Mon Mar 8 16:52:04 2021 +0100
+
+    commit changes
+
+commit 0e5216a9acd035610bc6fe2f1db0ca3f3c01e83f
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Sat Mar 6 17:45:39 2021 +0100
+
+    commit changes
+
+commit c43394690cad7bd4a6aa366a8277b1fd9865e778
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Sat Mar 6 15:28:49 2021 +0100
+
+    remove redundant print function
+
+commit c60c788a19c8e3cfd77e5a16981238d2f8c70722
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Sat Mar 6 15:28:38 2021 +0100
+
+    add readme
+
+commit b6ed2071b4f929432a2227748e992c08a971afdd
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Sat Mar 6 03:12:50 2021 +0100
+
+    add test files
+
+commit 496e7f992661ded7eaf28426a57f5212c4fc7e3d
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Sat Mar 6 01:07:13 2021 +0100
+
+    commit changes
+
+commit c293f55cd71466c1814b1d5106b265c32e32357d
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Sat Mar 6 00:57:46 2021 +0100
+
+    commit changes
+
+commit a744635befe7115cbd527fff7deeb273301820e6
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Fri Mar 5 18:57:58 2021 +0100
+
+    add procfile
+
+commit 49b528e1f4e255f7ad938875d96d6307b069f9b6
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Fri Mar 5 18:45:19 2021 +0100
+
+    complete compare template and function
+
+commit fc74dbb2d628dad70dacf7ffdde8a87c2643e22d
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Fri Mar 5 18:44:13 2021 +0100
+
+    complete compare template
+
+commit bf5c364e584873f7c267734ae18ef2d815221a2a
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Fri Mar 5 02:33:25 2021 +0100
+
+    minor changes
+
+commit c5a7a20f32d51841048ac7ed87ff782280555838
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Fri Mar 5 02:33:12 2021 +0100
+
+    minor changes
+
+commit 142735619711a6ea21f663149b25c6d5b9160483
+Merge: c0d38d5 9bb0871
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Fri Mar 5 02:28:50 2021 +0100
+
+    Merge branch 'compare' into main
+
+commit c0d38d547b6245ed4b7e7e3f87eb27ddfc1b510f
+Merge: c0b24c8 4cf47b2
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Fri Mar 5 02:27:04 2021 +0100
+
+    Merge branch 'country_detail' into main
+
+commit c0b24c8083f3aa39adb1bfc8593be065c5a8cb29
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Fri Mar 5 02:26:56 2021 +0100
+
+    commit changes
+
+commit 4cf47b24b154a9968901108674203fe2bf5395bb
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Fri Mar 5 02:26:18 2021 +0100
+
+    complete country_detail route and template
+
+commit 9bb0871c7e6e1143c0930495007bf5c146ffb43f
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Fri Mar 5 01:21:10 2021 +0100
+
+    commit initial changes
+
+commit 8a501148271c1d16a087135651d3265504dcf3c3
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Fri Mar 5 01:01:28 2021 +0100
+
+    refacture index route
+
+commit 5b77eea26aae9c10c0c8024087881f02cd48e105
+Merge: bff3178 3699f4e
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Fri Mar 5 01:00:37 2021 +0100
+
+    Merge branch 'search_by_year' into main
+
+commit bff3178cb43e90e3730b3310da797357fa1aae70
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Fri Mar 5 01:00:29 2021 +0100
+
+    commit
+
+commit 3699f4e9bf3a287302cd9c4d2416650de9fabfc4
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Fri Mar 5 00:59:56 2021 +0100
+
+    complete route and template for search year
+
+commit d001556000910cd856c847cc06c0262b23947565
+Merge: 2c46446 2408d6a
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Fri Mar 5 00:18:49 2021 +0100
+
+    Merge branch 'search_by_country' into main
+
+commit 2c4644610c3ea156b1319f88b791ecabe159974d
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Fri Mar 5 00:18:36 2021 +0100
+
+    commit file changes
+
+commit 2408d6a55054346ca727c3ceec38f2c4d8c54e95
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Fri Mar 5 00:17:41 2021 +0100
+
+    complete search by year template and routefunction
+
+commit 40186255ba23d6891623a939c054670773e48aa3
+Merge: ea264b1 4390b1e
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Thu Mar 4 02:55:54 2021 +0100
+
+    Merge branch 'index-page' into main
+
+commit ea264b192f7d9b062cfd29fa30233710144a7102
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Thu Mar 4 02:55:29 2021 +0100
+
+    commit changes
+
+commit 4390b1ebffc53836521072de13762571464a58ad
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Thu Mar 4 02:54:48 2021 +0100
+
+    present data in index page
+
+commit 6938a88a5938a3dff6e414f490532bb28af56c5f
+Author: Adedeji Abiola <adedejiabiola56@gmail.com>
+Date:   Tue Mar 2 17:54:35 2021 +0100
+
+    complete database schema and data insertion
+
+commit b64045221d8dd9d17a10d3626e82dedd8231e03b
+Author: Deji Abiola <adedejiabiola56@gmail.com>
+Date:   Mon Mar 1 16:30:08 2021 +0100
+
+    Initial commit

@@ -30,11 +30,13 @@ def close_db(error):
   
 # ----------
 
+# list of years that can be assessed
 all_years = [2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000]
 
 @app.route("/")
 def index():
     return render_template("index.html")
+
 
 @app.route("/search_country")
 def search_country():
@@ -42,6 +44,7 @@ def search_country():
   cur = db.execute("SELECT id,country FROM countries")
   all_countries = cur.fetchall()
   return render_template("search_country.html", countries=all_countries)
+
 
 @app.route("/search_year", methods = ["GET", "POST"])
 def search_year():
@@ -62,6 +65,7 @@ def search_year():
     """, (year,))
   rows = cur.fetchall()
   return render_template("search_year.html", rows=rows, all_years=all_years, year=year)
+
 
 @app.route("/country_detail/<id>")
 def country_detail(id):
@@ -126,6 +130,7 @@ def compare():
 
   return render_template("compare.html", country1_details = country_1_details, country2_details = country_2_details, all_countries=all_countries,
                           all_years=all_years, country_1 = country_1, country_2 = country_2, year_1=year_1, year_2=year_2)
+
 
 @app.errorhandler(404)
 def page_not_found(error):
