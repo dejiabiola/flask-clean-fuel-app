@@ -1,0 +1,41 @@
+* 934c97e : add comment in app.py
+* c30c52f : commit changes to css file
+* 332642d : commit changes
+* 0e5216a : commit changes
+* c433946 : remove redundant print function
+* c60c788 : add readme
+* b6ed207 : add test files
+* 496e7f9 : commit changes
+* c293f55 : commit changes
+* a744635 : add procfile
+* 49b528e : complete compare template and function
+* fc74dbb : complete compare template
+* bf5c364 : minor changes
+* c5a7a20 : minor changes
+*   1427356 : Merge branch 'compare' into main
+|\  
+| * 9bb0871 : commit initial changes
+* |   c0d38d5 : Merge branch 'country_detail' into main
+|\ \  
+| * | 4cf47b2 : complete country_detail route and template
+| |/  
+* | c0b24c8 : commit changes
+|/  
+* 8a50114 : refacture index route
+*   5b77eea : Merge branch 'search_by_year' into main
+|\  
+| * 3699f4e : complete route and template for search year
+* | bff3178 : commit
+|/  
+*   d001556 : Merge branch 'search_by_country' into main
+|\  
+| * 2408d6a : complete search by year template and routefunction
+* | 2c46446 : commit file changes
+|/  
+*   4018625 : Merge branch 'index-page' into main
+|\  
+| * 4390b1e : present data in index page
+* | ea264b1 : commit changes
+|/  
+* 6938a88 : complete database schema and data insertion
+* b640452 : Initial commit
